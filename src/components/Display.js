@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Display = (props) => {
-	console.log('this is display props', props);
 	const { songs } = props;
 
 	const loaded = () => (

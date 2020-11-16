@@ -21,21 +21,21 @@ const Form = (props) => {
 		<div>
 			<h1>Add A New Song</h1>
 			<form onSubmit={checkForm}>
-				<label for='name'>Name</label>
+				<label htmlFor='name'>Name</label>
 				<input
 					type='text'
 					id='name'
 					name='name'
 					onChange={handleChange}></input>
 				<br />
-				<label for='artist'>Artist</label>
+				<label htmlFor='artist'>Artist</label>
 				<input
 					type='text'
 					id='artist'
 					name='artist'
 					onChange={handleChange}></input>
 				<br />
-				<label for='time'>Time</label>
+				<label htmlFor='time'>Time</label>
 				<input
 					type='text'
 					id='time'
