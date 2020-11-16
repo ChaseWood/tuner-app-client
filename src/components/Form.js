@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = (props) => {
 	const [input, setInput] = useState({
 		name: '',
 		artist: '',
 		time: '',
+		favorites: false,
 	});
 
 	const handleChange = (event) => {
@@ -13,18 +14,18 @@ const Form = () => {
 
 	const checkForm = (event) => {
 		event.preventDefault();
-		console.log('the form worked', event);
+		props.handleAddSong(input);
 	};
 
 	return (
 		<div>
 			<h1>Add A New Song</h1>
 			<form onSubmit={checkForm}>
-				<label for='title'>Title</label>
+				<label for='name'>Name</label>
 				<input
 					type='text'
-					id='title'
-					name='title'
+					id='name'
+					name='name'
 					onChange={handleChange}></input>
 				<br />
 				<label for='artist'>Artist</label>

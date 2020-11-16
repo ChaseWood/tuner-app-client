@@ -10,25 +10,38 @@ function App() {
 
 	const [songs, setSongs] = useState({});
 
-	useEffect(() => {
-		const getSongs = async () => {
-			try {
-				const res = await fetch(url);
-				const json = await res.json();
-				setSongs(json);
-			} catch (err) {
-				console.error(err);
+	const getSongs = async () => {
+		try {
+			const res = await fetch(url);
+			const json = await res.json();
+			setSongs(json);
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	useEffect(() => getSongs(), []);
+
+	const handleAddSong = (input) => {
+		console.log(input);
+		fetch(
+			`${url}/?name=${input.name}&artist=${input.artist}&time=${input.time}&favorites=${input.favorites}`,
+			{
+				method: 'post',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(input),
 			}
-		};
-		getSongs();
-	}, []);
+		).then(() => getSongs());
+	};
 
 	return (
 		<div className='App'>
 			<header className='App-header'>
 				<img src={logo} className='App-logo' alt='logo' />
 				<Display songs={songs} />
-				<Form />
+				<Form handleAddSong={handleAddSong} />
 			</header>
 		</div>
 	);
