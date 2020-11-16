@@ -36,11 +36,19 @@ function App() {
 		).then(() => getSongs());
 	};
 
+	const handleDeleteSong = (song) => {
+		fetch(`${url}/${song.id}`, {
+			method: 'delete',
+		}).then(() => {
+			getSongs();
+		});
+	};
+
 	return (
 		<div className='App'>
 			<header className='App-header'>
 				<img src={logo} className='App-logo' alt='logo' />
-				<Display songs={songs} />
+				<Display songs={songs} handleDeleteSong={handleDeleteSong} />
 				<Form handleAddSong={handleAddSong} />
 			</header>
 		</div>

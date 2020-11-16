@@ -15,6 +15,12 @@ const Display = (props) => {
 						<div>{song.name}</div>
 						<div>{song.artist}</div>
 						<div>{song.time}</div>
+						<button
+							onClick={() => {
+								props.handleDeleteSong(song);
+							}}>
+							Delete
+						</button>
 					</div>
 				))}
 			</div>
