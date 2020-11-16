@@ -12,7 +12,7 @@ const Display = (props) => {
 			<div>
 				<h2>Playlist</h2>
 				{songs.map((song) => (
-					<div>
+					<div key={song.name}>
 						<div>{song.name}</div>
 						<div>{song.artist}</div>
 						<div>{song.time}</div>
