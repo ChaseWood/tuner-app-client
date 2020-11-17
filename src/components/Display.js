@@ -1,4 +1,5 @@
 import React from 'react';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Display = (props) => {
 	const { songs } = props;
@@ -15,12 +16,12 @@ const Display = (props) => {
 						<div>{song.name}</div>
 						<div>{song.artist}</div>
 						<div>{song.time}</div>
-						<button
+						<i className='far fa-heart'></i>
+						<i
 							onClick={() => {
 								props.handleDeleteSong(song);
-							}}>
-							Delete
-						</button>
+							}}
+							class='far fa-trash-alt'></i>
 					</div>
 				))}
 			</div>
