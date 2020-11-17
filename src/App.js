@@ -9,6 +9,7 @@ function App() {
 	const url = 'https://tunerapi.herokuapp.com/songs';
 
 	const [songs, setSongs] = useState({});
+	const [favorites, setFavorites] = useState([]);
 
 	const getSongs = async () => {
 		try {
@@ -23,7 +24,6 @@ function App() {
 	useEffect(() => getSongs(), []);
 
 	const handleAddSong = (input) => {
-		console.log(input);
 		fetch(
 			`${url}/?name=${input.name}&artist=${input.artist}&time=${input.time}&favorites=${input.favorites}`,
 			{
@@ -44,11 +44,22 @@ function App() {
 		});
 	};
 
+	const handleFavoriteSong = (song) => {
+		const favSongs = [...favorites];
+		const songIndex = favSongs.indexOf(song);
+		songIndex > -1 ? favSongs.splice(songIndex, 1) : favSongs.push(song);
+		setFavorites(favSongs);
+	};
+
 	return (
 		<div className='App'>
 			<header className='App-header'>
 				<img src={logo} className='App-logo' alt='logo' />
-				<Display songs={songs} handleDeleteSong={handleDeleteSong} />
+				<Display
+					songs={songs}
+					handleDeleteSong={handleDeleteSong}
+					handleFavoriteSong={handleFavoriteSong}
+				/>
 				<Form handleAddSong={handleAddSong} />
 			</header>
 		</div>

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Display = (props) => {
+	const [faves, setFaves] = useState([]);
 	const { songs } = props;
+
+	// const handleFaveToggle = (song) => {
+	// 	const faveSongs = [...faves];
+	// 	const songIndex = faveSongs.indexOf(song);
+	// 	songIndex > -1 ? faveSongs.splice(songIndex, 1) : faveSongs.push(song);
+	// 	setFaves({ faveSongs });
+	// };
 
 	const loaded = () => (
 		<div>
@@ -16,12 +24,14 @@ const Display = (props) => {
 						<div>{song.name}</div>
 						<div>{song.artist}</div>
 						<div>{song.time}</div>
-						<i className='far fa-heart'></i>
+						<i
+							className='far fa-heart'
+							onClick={() => setFaves((faves) => [...faves, song])}></i>
 						<i
 							onClick={() => {
 								props.handleDeleteSong(song);
 							}}
-							class='far fa-trash-alt'></i>
+							className='far fa-trash-alt'></i>
 					</div>
 				))}
 			</div>
