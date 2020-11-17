@@ -5,22 +5,24 @@ const Display = (props) => {
 	const [faves, setFaves] = useState([]);
 	const { songs } = props;
 
+	//https://www.robinwieruch.de/react-remove-item-from-list got this bit of code from here. I could not figure out how to remove from the favs list
 	const handleFavoritesDelete = (id) => {
 		const newFaves = faves.filter((fav) => fav.id !== id);
 		setFaves(newFaves);
 	};
 
 	const loaded = () => (
-		<div>
+		<div className='appBorder'>
 			<div className='container'>
-				<h1>TUNER</h1>
+				<h1 className='tuner'>TUNR.</h1>
+				<h3 className='header'> For All Your Playlist Needs</h3>
 			</div>
 			<div>
-				<h2 className='container'>Playlist</h2>
+				<h2 className='container, playlist'>Playlist</h2>
 				{songs.map((song) => (
 					<div className='container' key={song.id}>
-						<div>{song.artist}</div>
-						<div>{song.name}</div>
+						<div className='artist'>{song.artist}</div>
+						<div className='names'>{song.name}</div>
 						<div>{song.time}</div>
 						<div>
 							<i
@@ -37,14 +39,14 @@ const Display = (props) => {
 					</div>
 				))}
 			</div>
-			<h2 className='container'>Favorites</h2>
+			<h2 className='container, playlist'>Favorites</h2>
 			{faves.map((favs) => (
 				<div className='container' key={favs.id}>
 					<div>{favs.artist}</div>
 					<div>{favs.name}</div>
 					<div>{favs.time}</div>
 					<div>
-						<i className='far fa-heart'></i>
+						<i className='fa fa-heart'></i>
 					</div>
 					<div>
 						<i
@@ -58,7 +60,6 @@ const Display = (props) => {
 	const loading = <h1>Loading...</h1>;
 
 	return songs[0] ? loaded() : loading;
-	// return <h1>Hello World</h1>;
 };
 
 export default Display;

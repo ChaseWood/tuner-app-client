@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100&family=Kaushan+Script&family=Merriweather&family=Neuton&family=Pacifico&family=Shadows+Into+Light&display=swap');
 .App {
-	text-align: center;
+	/* text-align: center; */
 }
 
 .App-logo {
@@ -43,6 +44,55 @@
 	flex-grow: 1;
 }
 
+.container div:nth-of-type(2) {
+	margin-left: auto;
+}
+
 .container div:nth-of-type(3) {
 	margin-left: auto;
+}
+
+.tuner {
+	font-size: 80px;
+	font-family: 'Pacifico';
+}
+
+.playlist {
+	font-size: 50px;
+	font-family: 'Neuton';
+}
+
+.names {
+	font-family: 'Josefin Sans';
+}
+
+.artists {
+	font-family: 'Shadows Into Light';
+}
+
+.form {
+	border-radius: 10px;
+	width: 100%;
+	height: 30px;
+	margin: 5px;
+}
+
+.submit {
+	border-radius: 10px;
+	width: 100%;
+	height: 30px;
+}
+
+.formContainer {
+	margin-bottom: 50px;
+}
+
+.appBorder {
+	border: 10px solid;
+	padding: 20px;
+}
+
+.header {
+	position: absolute;
+	top: 180px;
 }

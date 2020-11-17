@@ -19,30 +19,36 @@ const Form = (props) => {
 
 	return (
 		<div>
-			<h1>Add A New Song</h1>
-			<form onSubmit={checkForm}>
-				<label htmlFor='name'>Name</label>
+			<h1 className='tuner'>Add A New Song</h1>
+			<form onSubmit={checkForm} className='formContainer'>
+				<label htmlFor='name'></label>
 				<input
 					type='text'
 					id='name'
 					name='name'
-					onChange={handleChange}></input>
+					onChange={handleChange}
+					className='form'
+					placeholder='Name'></input>
 				<br />
-				<label htmlFor='artist'>Artist</label>
+				<label htmlFor='artist'></label>
 				<input
 					type='text'
 					id='artist'
 					name='artist'
-					onChange={handleChange}></input>
+					onChange={handleChange}
+					className='form'
+					placeholder='Artist'></input>
 				<br />
-				<label htmlFor='time'>Time</label>
+				<label htmlFor='time'></label>
 				<input
 					type='text'
 					id='time'
 					name='time'
-					onChange={handleChange}></input>
+					onChange={handleChange}
+					className='form'
+					placeholder='Time'></input>
 				<br />
-				<input type='submit' value='Submit'></input>
+				<input type='submit' value='Submit' className='form'></input>
 			</form>
 		</div>
 	);
