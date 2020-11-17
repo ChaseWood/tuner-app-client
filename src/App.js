@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { Route, Switch } from 'react-router';
-import logo from './logo.svg';
 import './App.css';
 import Display from '../src/components/Display';
 import Form from '../src/components/Form';
